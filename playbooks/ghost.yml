@@ -1,0 +1,6 @@
+---
+- name: Requirements for ghost
+  hosts: ghost
+  roles:
+    - nodejs
+    - yarn

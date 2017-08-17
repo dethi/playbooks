@@ -1,0 +1,7 @@
+---
+- name: Common setup
+  hosts: all
+  roles:
+    - common
+    - firewall
+    - ntp

@@ -1,0 +1,35 @@
+---
+- name: system update
+  apt:
+    update_cache: yes
+    cache_valid_time: '{{apt_cache_valid_time}}'
+    upgrade: dist
+
+- name: install general packages
+  apt: name={{item}} state=latest
+  with_items:
+    - less
+    - tree
+    - htop
+    - zsh
+    - vim
+    - git
+    - python
+    - pwgen
+    - zip
+    - unzip
+
+- name: install ansible needed packages
+  apt: name={{item}} state=latest
+  with_items:
+    - python-passlib
+
+- name: copy confs
+  copy: src={{item}} dest=~/.{{item}}
+  with_items:
+    - zshrc
+    - zshrc_functions
+    - vimrc
+
+- name: set default shell to zsh
+  user: name={{ansible_user}} shell=/bin/zsh
