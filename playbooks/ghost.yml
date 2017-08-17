@@ -2,5 +2,8 @@
 - name: Requirements for ghost
   hosts: ghost
   roles:
+    - letsencrypt
     - nodejs
-    - yarn
+    - nginx
+    - mysql
+    - ghost
