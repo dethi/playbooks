@@ -1,0 +1,13 @@
+---
+- name: add ghost user
+  user: name=ghost groups=sudo
+
+- name: install ghost-cli
+  npm: name=ghost-cli global=yes state=latest
+
+- name: create directory
+  file:
+    path: /var/www/ghost
+    owner: ghost
+    group: ghost
+    state: directory
