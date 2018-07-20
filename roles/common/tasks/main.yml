@@ -8,16 +8,17 @@
 - name: install general packages
   apt: name={{item}} state=latest
   with_items:
-    - less
-    - tree
-    - htop
-    - zsh
-    - vim
     - git
-    - python
+    - htop
+    - less
+    - mosh
     - pwgen
-    - zip
+    - python
+    - tree
     - unzip
+    - vim
+    - zip
+    - zsh
 
 - name: install ansible needed packages
   apt: name={{item}} state=latest

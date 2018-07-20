@@ -13,6 +13,18 @@
     port: ssh
     proto: tcp
 
+- name: allow Mosh
+  ufw:
+    rule: allow
+    port: 60000:60010
+    proto: udp
+
+- name: limit Mosh
+  ufw:
+    rule: limit
+    port: 60000:60010
+    proto: udp
+
 - name: allow HTTP/HTTPS
   ufw:
     rule: allow
