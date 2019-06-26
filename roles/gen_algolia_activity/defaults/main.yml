@@ -1,0 +1,3 @@
+---
+script_path: /usr/local/bin/gen_algolia_activity
+script_log: /var/log/gen_algolia_activity.log

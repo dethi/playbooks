@@ -1,0 +1,21 @@
+---
+- name: copy script
+  copy: src=script.py dest='{{ script_path }}' mode='0755'
+
+- name: set crontab env ALGOLIA_APP_ID
+  cron:
+    name: ALGOLIA_APP_ID
+    env: yes
+    job: '{{ vaulted_algolia_app_id }}'
+
+- name: set crontab env ALGOLIA_APP_SECRET
+  cron:
+    name: ALGOLIA_APP_SECRET
+    env: yes
+    job: '{{ vaulted_algolia_app_secret }}'
+
+- name: set crontab job
+  cron:
+    name: generate algolia activity
+    job: '{{ script_path }} 2>&1 >{{ script_log }}'
+    special_time: weekly

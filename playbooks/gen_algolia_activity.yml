@@ -1,0 +1,10 @@
+---
+- name: Generate Algolia activity
+  hosts: '{{ target }}'
+  pre_tasks:
+    - name: install python3-pip
+      apt: name=python3-pip
+    - name: install algoliasearch API client
+      pip: name=algoliasearch executable=pip3
+  roles:
+    - gen_algolia_activity
